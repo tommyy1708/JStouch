@@ -31,6 +31,7 @@ body {
 }
 
 .nav {
+    border: 5px solid #333;
     height: 1.5rem;
     width: 500%;
     position: absolute;
@@ -59,11 +60,36 @@ body {
 }
 
 .nav>li:nth-child(4){
-    background-color: green;
-}
-
-.nav>li:nth-child(5){
     background-color: red;
 }
 
+.nav>li:nth-child(5){
+    background-color: yellow;
+}
 
+.spots {
+    position: absolute;
+    right: 10px ;
+    bottom: 10px;
+    
+}
+.spots li {
+    width: 5px;
+    height: 5px;
+    display: inline-block;
+    border-radius: 2px;
+    border: 1px solid #fff;
+    background-color: #333;
+    transition: all .3s;
+}
+.wrap ol li.current {
+    width: 20px;
+}
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: block;
+    overflow: hidden;
+    
+}
