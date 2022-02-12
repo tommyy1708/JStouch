@@ -1,35 +1,154 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <script src="./jQuery.min.js"></script>
     <style>
-        div {
-            width: 100px;
-            height: 100px;
-            background-color: pink;
-        }
-    </style>
-</head>
-<body>
-    <script>
-        /* jquery 内有两种等待载入js文档的方法
-        1. $(document).ready(function(){
-            $('div').hide();
-        })
-        2.$(function(){
-             $('div').hide();
-        })
-        相当于DOMContentLoaded,文档节点加载完毕
-        */
-       $(function () {
-           $('div').hide();
+      /* API 1使用
+      div {
+        width: 100px;
+        height: 100px;
+        background-color: pink;
+        display: block;
+      } */
+      * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+      }
+      /* API 2
+      li {
+          list-style: none;
+      }
+      .nav>li {
+          float: left;
+      }
+      .nav>li>ul{
+          display: none;
+      } */
 
-         })
+      /*  API 3
+      div {
+          width: 100px;
+          height: 100px;
+          background-color: pink;
+      } */
+      .wrap{
+          width: 220px;
+          height: 220px;
+          border: 1px solid #333;
+      }
+      .wrap div{
+          float: left;
+          background-color: pink;
+          width: 95px;
+          height: 95px;
+          margin: 5px;
+      }
+      
+    </style>
+  </head>
+  <body>
+      <!-- API 1 配套内容
+          <button>显示</button>
+      <button>隐藏</button>
+      <button>切换</button>
+      <div ></div> -->
+
+
+      <!--  API 2 配套内容 
+          <nav class="nav">
+          <li>首页1
+              <ul>
+              <li>1</li>
+              <li>2</li>
+              <li>3</li>
+              <li>4</li>
+              </ul>
+        </li>
+          <li>首页2
+              <ul>
+              <li>1</li>
+              <li>2</li>
+              <li>3</li>
+              <li>4</li>
+              </ul>
+        </li>
+          <li>首页3
+              <ul>
+              <li>1</li>
+              <li>2</li>
+              <li>3</li>
+              <li>4</li>
+              </ul>
+        </li>
+      </nav> -->
+
+      <!-- API 3 配套内容
+          <button>淡入</button>
+      <button>淡出</button>
+      <button>切换</button>
+      <div>
+          
+      </div> -->
+      
+      <div class="wrap">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+      </div>
+    <script>
+$(function(){
+    /* 点击案例
+    $("button").eq(0).click(function(){
+        $("div").slideUp(200,function () {
+          });
+    })
+    $("button").eq(1).click(function(){
+        $("div").slideDown(200,function () {
+          });
+    })
+    $("button").eq(2).click(function(){
+        $("div").slideToggle(200,function () {
+          });
+    })
+    */
+
+
+//     //鼠标经过案例
+//    $(".nav>li").hover(
+//        function(){
+//        $(this).children("ul").slideDown(200)
+//     },
+//     function(){
+//      $(this).children("ul").slideUp(200);
+//    })
+   //案例 三 包含stop函数，阻止动画排队 
+//    $(".nav>li").hover(
+//        function () {
+//            $(this).children("ul").stop().toggle(200);
+//          }
+//    )
+
+//淡入淡出API 
+//   $('button').eq(2).click(function(){
+//       $('div').stop().fadeToggle();
+//   })
+
+//高亮案例 
+$(".wrap div").hover(function(){
+    $(this).siblings().stop().fadeTo(200,0.5)
+  
+},  function () {
+        $(this).siblings().stop().fadeTo(200,1);
+      })
+
+
+})
     </script>
-    <div></div>
-</body>
+  </body>
 </html>
